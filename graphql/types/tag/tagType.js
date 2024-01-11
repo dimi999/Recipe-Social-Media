@@ -11,7 +11,7 @@ const TagType = new GraphQLObjectType({
         id: {
             type: GraphQLID,
         },
-        name: {
+        tag_name: {
             type: GraphQLString,
         },
     }),

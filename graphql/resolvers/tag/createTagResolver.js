@@ -1,9 +1,9 @@
 const db = require('../../../models');
 
 const createTagResolver = async (_, { tag }) => {
-    const  {name}  = tag;
+    const  {tag_name}  = tag;
     const newTag = await db.Tag.create({
-        name,
+        tag_name,
     });
 
     console.log('tag aici');

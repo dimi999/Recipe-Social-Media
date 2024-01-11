@@ -6,7 +6,7 @@ const { GraphQLInputObjectType,
 const tagInputType = new GraphQLInputObjectType({
     name: "TagInputType",
     fields: {
-        name: {
+        tag_name: {
             type: new GraphQLNonNull(GraphQLString),
         },
     }
