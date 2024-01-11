@@ -4,16 +4,16 @@ const {
 } = require("graphql");
 
 //this is what the mutation returns
-const TagrecipeType = new GraphQLObjectType({
-    name: "Tagrecipe",
+const TagRecipeType = new GraphQLObjectType({
+    name: "TagRecipe",
     fields: {
-        recipeId: {
+        recipe_id: {
             type: GraphQLID,
         },
-        tagId: {
+        tag_id: {
             type: GraphQLID,
         }
     },
 });
 
-module.exports = TagrecipeType;
+module.exports = TagRecipeType;
