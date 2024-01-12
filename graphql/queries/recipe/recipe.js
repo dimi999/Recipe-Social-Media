@@ -11,11 +11,11 @@ const recipeQuery = {
     args: {
         id: {
             type: new GraphQLNonNull(GraphQLID),
-        }
+        },
     },
-    resolve: (_, args) => {
-        const { id } = args;
-        return db.Recipe.findByPk(id);
+    resolve: async (_, args) => {
+        const {id} = args;
+        return await db.Recipe.findByPk(id);
     }
 
 }

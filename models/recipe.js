@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       models.Recipe.belongsTo(models.User, {
         foreignKey: 'id'
       });
+      models.Recipe.belongsToMany(models.Tag, {
+        through: 'RecipeTag',
+        foreignKey: 'recipe_id'
+      });
     }
   }
   Recipe.init({
