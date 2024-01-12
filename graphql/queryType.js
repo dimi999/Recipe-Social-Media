@@ -1,16 +1,17 @@
-const { 
-    GraphQLObjectType, 
-    GraphQLList,
-    GraphQLNonNull,
-    GraphQLID,
+const {
+    GraphQLObjectType,
 } = require('graphql');
 
-const userQuery = require('./queries/user');
+const userQuery = require('./queries/user/user');
+const tagQuery = require('./queries/tag/tag');
+const recipeQuery = require('./queries/recipe/recipe');
 
 const queryType = new GraphQLObjectType({
     name: 'Query',
     fields: {
-        users: userQuery,
+        tag: tagQuery,
+        user: userQuery,
+        recipe:recipeQuery,
     }
 })
 
