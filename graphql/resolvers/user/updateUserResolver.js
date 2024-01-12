@@ -1,10 +1,11 @@
 const db = require('../../../models');
 
-const updateUserResolver = async (_, { user },context) => {
-  console.log("context",context)
+const updateUserResolver = async (_, { user }, context) => {
   try {
-    console.log(user)
     const { user_id, username, email, password, profile_picture, bio, date_joined } = user;
+    if (parseInt(user_id) !== parseInt(context.user_id)) {
+      throw new Error('Permission denied');
+    }
 
     const targetUser = await db.User.findByPk(user_id);
 
