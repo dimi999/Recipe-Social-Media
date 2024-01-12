@@ -1,24 +1,25 @@
 const db = require('../../../models');
 
 const createRecipeResolver = async (_, { recipe }) => {
-    const {title,
+    const { title,
         description,
         ingredients,
         instructions,
         imageUrl,
-        dateCreated } = recipe;
-    const newUser = await db.Recipe.create({
+        user_id } = recipe;
+    let { dateCreated } = recipe;
+    if (!dateCreated) dateCreated = new Date();
+    const newRecipe = await db.Recipe.create({
         title,
         description,
         ingredients,
         instructions,
         imageUrl,
-        dateCreated
+        dateCreated,
+        user_id
     });
 
-    console.log('recipe aici');
-
-    return newUser;
+    return newRecipe;
 }
 
 module.exports = createRecipeResolver;

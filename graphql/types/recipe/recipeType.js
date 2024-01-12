@@ -14,7 +14,7 @@ const recipeType = new GraphQLObjectType({
         id: {
             type: GraphQLID,
         },
-        userId: {
+        user_id: {
             type: GraphQLID,
         },
         title: {
@@ -33,7 +33,7 @@ const recipeType = new GraphQLObjectType({
             type: GraphQLString,
         },
         dateCreated: {
-            type: GraphQLLocalDateTime,
+            type: GraphQLString,
         },
 
     },

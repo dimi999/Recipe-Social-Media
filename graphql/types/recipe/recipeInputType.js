@@ -1,6 +1,7 @@
 const { GraphQLInputObjectType,
     GraphQLString,
-    GraphQLNonNull
+    GraphQLNonNull,
+    GraphQLID
 } = require('graphql');
 const {GraphQLLocalDateTime} = require("graphql-scalars");
 
@@ -22,9 +23,13 @@ const recipeInputType = new GraphQLInputObjectType({
         imageUrl: {
             type: new GraphQLNonNull(GraphQLString),
         },
-        dateCreated: {
-            type: new GraphQLNonNull(GraphQLLocalDateTime),
+        user_id: {
+            type: new GraphQLNonNull(GraphQLID),
         },
+        dateCreated: {
+            type: GraphQLString,
+        },
+        
     }
 });
 
