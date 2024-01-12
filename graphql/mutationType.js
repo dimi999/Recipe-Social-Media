@@ -4,8 +4,9 @@ const {
 
 const createTag = require('./mutations/tag/createTag');
 const createUser = require('./mutations/user/createUser');
-const updateUser = require("./mutations/user/updateUser")
-const deleteUser = require("./mutations/user/deleteUser")
+const updateUser = require("./mutations/user/updateUser");
+const deleteUser = require("./mutations/user/deleteUser");
+const login = require("./mutations/user/login")
 const createRecipe = require('./mutations/recipe/createRecipe');
 const updateRecipe = require('./mutations/recipe/updateRecipe');
 const deleteRecipe = require ('./mutations/recipe/deleteRecipe');
@@ -17,6 +18,7 @@ const mutationType = new GraphQLObjectType({
         createUser:createUser,
         updateUser:updateUser,
         deleteUser:deleteUser,
+        login:login,
         createRecipe:createRecipe,
         updateRecipe:updateRecipe,
         deleteRecipe:deleteRecipe
