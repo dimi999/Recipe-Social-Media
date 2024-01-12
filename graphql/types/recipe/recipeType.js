@@ -2,19 +2,19 @@ const {
     GraphQLObjectType,
     GraphQLString,
     GraphQLID,
+    GraphQLList,
 } = require("graphql");
 const {
    GraphQLLocalDateTime,
 } = require("graphql-scalars")
+
+const tagType = require("../tag/tagType");
 
 //this is what the mutation returns
 const recipeType = new GraphQLObjectType({
     name: "recipe",
     fields: {
         id: {
-            type: GraphQLID,
-        },
-        userId: {
             type: GraphQLID,
         },
         title: {

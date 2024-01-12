@@ -1,7 +1,9 @@
 const db = require('../../../models');
 
-const createRecipeResolver = async (_, { recipe }) => {
-    const {title,
+const createRecipeResolver = async (_, { recipe }, context) => {
+    const userId = context.req.raw.user
+    const {
+        title,
         description,
         ingredients,
         instructions,
@@ -16,7 +18,7 @@ const createRecipeResolver = async (_, { recipe }) => {
         dateCreated
     });
 
-    console.log('recipe aici');
+    console.log('user aici');
 
     return newUser;
 }
