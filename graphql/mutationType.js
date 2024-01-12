@@ -9,7 +9,7 @@ const createRecipe = require('./mutations/recipe/createRecipe');
 const mutationType = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        createTag: createTag,
+        createTag:createTag,
         createUser:createUser,
         createRecipe:createRecipe,
     }

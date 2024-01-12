@@ -1,13 +1,15 @@
 const db = require('../../../models');
 
 const createUserResolver = async (_, { user }) => {
-    const { userName, email } = user;
+    const { username, email, password, profile_picture, bio, date_joined } = user;
     const newUser = await db.User.create({
-        userName,
-        email
+        username,
+        email,
+        password,
+        profile_picture,
+        bio,
+        date_joined
     });
-
-    console.log('user aici');
 
     return newUser;
 }
