@@ -11,31 +11,31 @@ const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
 const checkAuthorization = async (req, res, next) => {
-  const { authorization } = req.headers;
+    const { authorization } = req.headers;
 
-  if(!authorization) {
+    if(!authorization) {
+        next();
+        return;
+    }
+
+    // const token = authorization.replace('Bearer ', '');
+
+    // const data = jwt.verify(token, process.env.JWT_SECRET);
+
+    const user = await db.User.findByPk(data.userId);
+
+    if(user) {
+        req.user = user.dataValues;
+    }
+
     next();
-    return;
-  }
-
-  // const token = authorization.replace('Bearer ', '');
-
-  // const data = jwt.verify(token, process.env.JWT_SECRET);
-
-  const user = await db.User.findByPk(data.userId);
-  
-  if(user) {
-    req.user = user.dataValues;
-  }
-
-  next();
 }
 
 app.all('/graphql', checkAuthorization, createHandler({
-   schema,
-   context: (req) => {
-     return req.raw.user;
-   },
+    schema,
+    context: (req) => {
+        return req.raw.user;
+    },
 }))
 
 module.exports = app;

@@ -1,14 +1,18 @@
-const { 
-    GraphQLObjectType, 
+const {
+    GraphQLObjectType,
 } = require('graphql');
 
-const createUser = require('./mutations/createUser');
+const createTag = require('./mutations/tag/createTag');
+const createUser = require('./mutations/user/createUser');
+const createRecipe = require('./mutations/recipe/createRecipe');
 
 const mutationType = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-      createUser: createUser,
+        createTag: createTag,
+        createUser:createUser,
+        createRecipe:createRecipe,
     }
-  })
+})
 
 module.exports = mutationType;

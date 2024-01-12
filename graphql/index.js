@@ -1,5 +1,5 @@
-const { 
-    GraphQLSchema, 
+const {
+    GraphQLSchema,
 } = require('graphql');
 
 const queryType = require('./queryType');
@@ -11,3 +11,4 @@ const schema = new GraphQLSchema({
 })
 
 module.exports = schema;
+
