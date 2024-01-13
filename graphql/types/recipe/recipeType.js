@@ -8,6 +8,7 @@ const {
    GraphQLLocalDateTime,
 } = require("graphql-scalars")
 const db = require("../../../models");
+const TagType = require("../tag/tagType");
 
 
 //this is what the mutation returns
@@ -36,13 +37,11 @@ const recipeType = new GraphQLObjectType({
             type: GraphQLLocalDateTime,
         },
         tags: {
-            type: new GraphQLList(GraphQLString),
+            type: new GraphQLList(TagType),
             async resolve(parent) {
                 const recipeTags = await db.RecipeTag.findAll({where: {recipe_id: parent.dataValues.id}});
                 const tagIds = recipeTags.map((rt) => rt.tag_id);
-                let tags = await db.Tag.findAll({where: {id: tagIds}});
-                tags = tags.map(tag => tag.tag_name);
-                return tags;
+                return await db.Tag.findAll({where: {id: tagIds}});
             },
         }
     },
