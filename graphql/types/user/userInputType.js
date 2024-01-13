@@ -10,7 +10,7 @@ const userInputType = new GraphQLInputObjectType({
             type: new GraphQLNonNull(GraphQLString),
         },
         password: {
-            type: GraphQLString,
+            type: new GraphQLNonNull(GraphQLString),
         },
         profile_picture: {
             type: GraphQLString,

@@ -10,9 +10,6 @@ const postLikeStatus = {
     args: {
         recipe_id: {
             type: new GraphQLNonNull(GraphQLID),
-        },
-        user_id: {
-            type: new GraphQLNonNull(GraphQLID),
         }
     },
     resolve: postLikeStatusResolver,

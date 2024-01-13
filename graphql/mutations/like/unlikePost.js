@@ -1,12 +1,11 @@
 const unlikePostResolver = require('../../resolvers/like/unlikePostResolver');
-const LikeInputType = require('../../types/like/likeInputType');
-const { GraphQLBoolean } = require('graphql');
+const { GraphQLBoolean, GraphQLInt } = require('graphql');
 
 const unlikePost = {
     type: GraphQLBoolean,
     args: {
-      like: {
-        type: LikeInputType,
+      recipe_id: {
+        type: GraphQLInt,
       },
     },
     resolve: unlikePostResolver,

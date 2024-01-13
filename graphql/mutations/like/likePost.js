@@ -1,12 +1,12 @@
 const LikeType = require('../../types/like/likeType');
 const likePostResolver = require('../../resolvers/like/likePostResolver');
-const LikeInputType = require('../../types/like/likeInputType');
+const { GraphQLInt } = require('graphql');
 
 const likePost = {
     type: LikeType,
     args: {
-      like: {
-        type: LikeInputType,
+      recipe_id: {
+        type: GraphQLInt,
       },
     },
     resolve: likePostResolver,

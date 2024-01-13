@@ -1,12 +1,12 @@
 const db = require('../../../models');
 
-const createRecipeResolver = async (_, { recipe }) => {
+const createRecipeResolver = async (_, { recipe },context) => {
     const { title,
         description,
         ingredients,
         instructions,
         imageUrl,
-        user_id } = recipe;
+        } = recipe;
     let { dateCreated } = recipe;
     if (!dateCreated) dateCreated = new Date();
     const newRecipe = await db.Recipe.create({
@@ -16,7 +16,7 @@ const createRecipeResolver = async (_, { recipe }) => {
         instructions,
         imageUrl,
         dateCreated,
-        user_id
+        user_id:context.user_id
     });
 
     return newRecipe;

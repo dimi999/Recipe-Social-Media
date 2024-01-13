@@ -1,16 +1,15 @@
 const db = require('../../../models');
 
-const unlikePostResolver = async (_, { like }) => {
-    const { user_id, recipe_id } = like;
+const unlikePostResolver = async (_, { recipe_id }, context) => {
     const {count, rows} = await db.Like.findAndCountAll(
         {where: {
-            user_id: user_id,
+            user_id: context.user_id,
             recipe_id: recipe_id,
         }
     });
 
     if (count == 0) {
-        throw new Error("Like does't exist");
+        throw new Error("Like doesn't exist");
     }
 
     if(count >= 2) {
@@ -23,7 +22,7 @@ const unlikePostResolver = async (_, { like }) => {
         return true;
 
     } catch {
-        throw new Error(`Error deleting like from user: ${user_id} for post: ${recipe_id}`);
+        throw new Error(`Error deleting like from user: ${context.user_id} for post: ${recipe_id}`);
     }
 }
 

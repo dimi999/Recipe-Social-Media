@@ -3,9 +3,6 @@ const { GraphQLInputObjectType, GraphQLNonNull, GraphQLID, GraphQLString } = req
 const commentInputType = new GraphQLInputObjectType({
     name: "CommentInputType",
     fields: {
-        user_id: {
-            type: new GraphQLNonNull(GraphQLID),
-        },
         recipe_id: {
             type: new GraphQLNonNull(GraphQLID),
         },

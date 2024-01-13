@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id'
       });
 
-      // models.Comments.belongsTo(models.Recipe, {
-      //   foreignKey: 'recipe_id'
-      // });
+      models.Comment.belongsTo(models.Recipe, {
+        foreignKey: 'recipe_id'
+      });
     }
   }
   Comment.init({
