@@ -2,7 +2,6 @@ const {
     GraphQLObjectType,
 } = require('graphql');
 
-const createUser = require('./mutations/createUser');
 const addComment = require('./mutations/comment/addComment');
 const deleteComment = require('./mutations/comment/deleteComment');
 const editComment = require('./mutations/comment/editComment');
