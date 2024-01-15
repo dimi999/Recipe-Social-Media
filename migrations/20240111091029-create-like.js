@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Comments', {
+    await queryInterface.createTable('Likes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,15 +10,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
+        foreignKey: true,
         type: Sequelize.INTEGER
       },
       recipe_id: {
+        foreignKey: true,
         type: Sequelize.INTEGER
       },
-      comment_text: {
-        type: Sequelize.STRING
-      },
-      date_commented: {
+      date_liked: {
         type: Sequelize.DATE
       },
       createdAt: {
@@ -32,6 +31,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Comments');
+    await queryInterface.dropTable('Likes');
   }
 };
