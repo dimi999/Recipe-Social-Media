@@ -11,13 +11,14 @@ const db = require("../../../models");
 const userQuery = {
     type: UserType,
     args: {
-        id: {
+        user_id: {
             type: new GraphQLNonNull(GraphQLID),
         }
     },
     resolve: (_, args) => {
-        const { id } = args;
-        return db.User.findByPk(id);
+        const { user_id } = args;
+        console.log(user_id)
+        return db.User.findByPk(user_id);
     }
 }
 

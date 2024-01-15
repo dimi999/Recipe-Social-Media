@@ -28,7 +28,7 @@ const recipeInputType = new GraphQLInputObjectType({
             type: new GraphQLNonNull(GraphQLString),
         },
         dateCreated: {
-            type: new GraphQLNonNull(GraphQLLocalDateTime),
+            type: GraphQLString,
         },
         tags: {
             type: new GraphQLList(GraphQLString),

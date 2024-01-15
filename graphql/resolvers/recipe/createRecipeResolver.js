@@ -9,17 +9,15 @@ async function getLatestRecipeId() {
     return latestRecipe.id
 }
 
-
-const createRecipeResolver = async (_, {recipe}) => {
-    const {
-        user_id,
-        title,
+const createRecipeResolver = async (_, { recipe },context) => {
+    const { title,
         description,
         ingredients,
         instructions,
-        imageUrl
-    } = recipe;
-    let {dateCreated} = recipe;
+        imageUrl,
+        } = recipe;
+    let { dateCreated } = recipe;
+
     if (!dateCreated) dateCreated = new Date();
     const newRecipe = await db.Recipe.create({
         title,
@@ -28,7 +26,7 @@ const createRecipeResolver = async (_, {recipe}) => {
         instructions,
         imageUrl,
         dateCreated,
-        user_id
+        user_id:context.user_id
     });
 
     let {tags} = recipe

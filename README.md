@@ -16,3 +16,8 @@
 # DB description
     TO DO
 
+# How to use jwt login with altair
+
+0. Make sure u have ```JWT_SECRET = "<anything you want>"``` in the ```.env``` file 
+1. Perform a correct ```login``` and get the jwt token
+2. From the upper left headers (sun like symbol) create the header with ```Authorization```  ```Bearer <your_jwt_token>```
