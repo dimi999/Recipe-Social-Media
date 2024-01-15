@@ -14,7 +14,7 @@
 3. Execute ```npx sequelize-cli db:migrate```, which effectively does the migration.
 
 # DB description
-    TO DO
+![DB diagram](/assets/Db_diagram.svg)
 
 # How to use jwt login with altair
 
