@@ -12,7 +12,7 @@ module.exports = {
       tag_name: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+        unique:true,
       },
       createdAt: {
         allowNull: false,

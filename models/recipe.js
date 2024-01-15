@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.Recipe.belongsTo(models.User, {
-        foreignKey: 'user_id',
+        foreignKey: 'id'
+      });
+      models.Recipe.belongsToMany(models.Tag, {
+        through: 'RecipeTag',
+        foreignKey: 'recipe_id'
       });
     }
   }

@@ -1,6 +1,7 @@
 const { GraphQLInputObjectType,
     GraphQLString,
     GraphQLNonNull,
+    GraphQLList,
     GraphQLID
 } = require('graphql');
 const {GraphQLLocalDateTime} = require("graphql-scalars");
@@ -8,6 +9,9 @@ const {GraphQLLocalDateTime} = require("graphql-scalars");
 const recipeInputType = new GraphQLInputObjectType({
     name: "RecipeInputType",
     fields: {
+        user_id:{
+            type: new GraphQLNonNull(GraphQLID),
+        },
         title: {
             type: new GraphQLNonNull(GraphQLString),
         },
@@ -26,7 +30,9 @@ const recipeInputType = new GraphQLInputObjectType({
         dateCreated: {
             type: GraphQLString,
         },
-        
+        tags: {
+            type: new GraphQLList(GraphQLString),
+        },
     }
 });
 
