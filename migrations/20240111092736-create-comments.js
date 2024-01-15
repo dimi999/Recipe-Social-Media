@@ -18,7 +18,7 @@ module.exports = {
       comment_text: {
         type: Sequelize.STRING
       },
-      date_liked: {
+      date_commented: {
         type: Sequelize.DATE
       },
       createdAt: {
