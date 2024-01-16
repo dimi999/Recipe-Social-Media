@@ -1,11 +1,12 @@
+const bcrypt = require('bcrypt');
 const db = require('../../../models');
 
-const updateUserResolver = async (_, { user }, context) => {
+const updateUserResolver = async (_, args , context) => {
+  
   try {
-    const { user_id, username, email, password, profile_picture, bio, date_joined } = user;
-    if (parseInt(user_id) !== parseInt(context.user_id)) {
-      throw new Error('Permission denied');
-    }
+    const {user} = args;
+    const { username, email, password, profile_picture, bio, date_joined } = user;
+    const user_id = context.user_id;
 
     const targetUser = await db.User.findByPk(user_id);
 
