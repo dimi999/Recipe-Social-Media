@@ -1,13 +1,21 @@
+const {
+    GraphQLNonNull,
+    GraphQLID,
+    GraphQLBoolean
+} = require('graphql');
 const updateRecipeResolver = require('../../resolvers/recipe/updateRecipeResolver.js');
 const recipeType = require('../../types/recipe/recipeType.js');
-const updateRecipeInputType = require('../../types/recipe/updateRecipeInputType');
+const recipeInputType = require('../../types/recipe/recipeInputType');
 
 
 const updateRecipe = {
     type: recipeType,
     args: {
+        id: {
+            type: new GraphQLNonNull(GraphQLID),
+        },
         recipe: {
-            type: updateRecipeInputType,
+            type: recipeInputType,
         }
     },
     resolve: updateRecipeResolver

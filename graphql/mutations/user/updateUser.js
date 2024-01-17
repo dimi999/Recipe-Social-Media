@@ -1,12 +1,17 @@
+const {
+    GraphQLNonNull,
+    GraphQLID,
+    GraphQLBoolean
+} = require('graphql');
 const UserType = require('../../types/user/userType');
 const updateUserResolver = require('../../resolvers/user/updateUserResolver');
-const updateUserInputType = require('../../types/user/updateUserInputType');
+const userInputType = require('../../types/user/userInputType');
 
 const updateUser = {
     type: UserType,
     args: {
         user: {
-            type: updateUserInputType,
+            type: userInputType,
         },
     },
     resolve: updateUserResolver,

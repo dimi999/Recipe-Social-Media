@@ -1,11 +1,12 @@
 const db = require('../../../models');
 
-const updateRecipeResolver = async (_, { recipe },context) => {
+const updateRecipeResolver = async (_, args,context) => {
+
+    console.log(args)
+    const { id,recipe } = args;
     try {
         console.log(recipe)
         const {
-            id,
-            user_id,
             title,
             description,
             ingredients,
