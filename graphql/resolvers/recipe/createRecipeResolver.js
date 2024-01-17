@@ -1,13 +1,6 @@
 const db = require('../../../models');
 
-// Function to get the latest recipe ID
-async function getLatestRecipeId() {
-    const latestRecipe = await db.Recipe.findOne({
-        order: [['id', 'DESC']],
-    });
 
-    return latestRecipe.id
-}
 
 const createRecipeResolver = async (_, { recipe },context) => {
     const { title,
@@ -31,7 +24,7 @@ const createRecipeResolver = async (_, { recipe },context) => {
 
     let {tags} = recipe
     // Fetch the latest recipe ID
-    const latestRecipeId = await getLatestRecipeId();
+    const latestRecipeId = await newRecipe.id;
 
     if (latestRecipeId !== null) {
         tags = await db.Tag.findAll({
